@@ -1,24 +1,6 @@
 class AlarmClock {
 	constructor() {
-		this.alarmCollection = [
-				{
-					time: "20:00",
-					callback: () => console.log('Пора вставать!'),
-					id: 20,
-				},
-
-				{
-					time: "13:00",
-					callback: () => console.log('Подъем'),
-					id: 70,
-				},
-
-				{
-					time: "16:00",
-					callback: () => console.log('Все проспал'),
-					id: 27,
-				}
-			];
+		this.alarmCollection = [];
 		this.timerId = null;
 	}
 
@@ -66,7 +48,8 @@ class AlarmClock {
 
 		this.timerId = setInterval(() => {
 			this.alarmCollection.forEach(item => {
-				if('this.getCurrentFormattedTime' === item.time) {
+				if(this.getCurrentFormattedTime() === item.time) {
+
 					item.callback();
 				}
 			});
